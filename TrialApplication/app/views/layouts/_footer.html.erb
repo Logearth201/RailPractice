@@ -1,0 +1,6 @@
+<% if @current_member && @current_member.administrator %>
+  管理ツール<br>
+  <%= link_to "キャラリスト", members_path %>
+  <%= link_to "登録フォーム(仮)", new_member_path %>
+  <%= link_to "記事投稿(仮)", new_article_path %>
+<% end %>

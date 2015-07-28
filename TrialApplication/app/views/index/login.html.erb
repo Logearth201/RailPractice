@@ -1,0 +1,13 @@
+<h2>LOGIN</h2>
+<% if flash.alert %>
+  <p class="alert"><%= flash.alert %></p>
+<% end %>
+<% logger.debug(session) %>
+<%= form_tag :session do %>
+  EMAIL:
+  <%= text_field_tag "email", "" %>
+  PASSWORD:
+  <%= password_field_tag "password","" %>
+  <%= submit_tag "ログイン" %>
+  <% hidden_field_tag "from", request.path %>
+<% end %>

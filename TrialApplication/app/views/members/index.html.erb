@@ -1,0 +1,28 @@
+<% if @members.present? %>
+  <% if @current_member && @current_member.administrator %>
+    <%= @member %>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>USER_ID</th>
+        <th>name</th>
+        <th>mail</th>
+        <th>Admin</th>
+      </tr>mail
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= link_to member.id, member_path(member) %></td>
+          <td><%= member.name %></td>
+          <td><%= member.email %></td>
+          <td><%= member.administrator %></td>
+          <td><%= link_to "編集", edit_member_path(member) %></td>
+          <td><%= link_to "削除", member_path(member) , method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    アクセスが拒否されました。
+  <% end %>
+<% else %>
+  <p>会員情報がないよ！</p>
+<% end %>

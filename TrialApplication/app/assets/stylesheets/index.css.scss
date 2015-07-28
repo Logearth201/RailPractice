@@ -1,0 +1,163 @@
+/*
+  template
+*/
+
+html {
+   box-sizing:border-box;
+   min-height : 100%;
+   over-flow: hidden;
+   z-index: 1;
+   user-select: none; /* CSS3 */
+   -moz-user-select: none; /* Firefox */
+}
+
+body {
+   margin:0px;
+   padding:0px;
+   line-height:1.6;
+   z-index : 1;
+   letter-spacing:1px;
+   font-family: sans-serif;
+   font-size:15px;
+   background:#FFF;
+   color:"#000";
+}
+
+canvas {
+  z-index : 0;
+  position : fixed;
+  top: 0px;
+}
+
+a{
+  color : #00F;
+}
+
+a:hover {
+  color : #0FF;
+}
+
+/*
+	sub
+*/
+
+#centering{
+    margin: auto;
+}
+
+#header {
+    padding-left : 2%;
+    width: 98%;
+    background: #FFF;
+}
+
+
+
+#header_logo {
+  float: left;
+}
+
+
+#menubar{
+  clear:both;
+  width: 100%;
+}
+
+#menubar a{
+  width:25%;
+  float:left;
+  display: table-cell;
+  text-align:center;
+  height:40px;
+  text-decoration : none;
+  background-color:#204;
+  color : #FFF;
+}
+
+#menubar a:hover{
+  background-color:#63A;
+  color : #000;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+/* submits */
+
+#user_article{
+    border: inset 3px;
+    background: linear-gradient(#DDD, #CCC);
+    color: #000000;
+}
+
+#user_article_infofield{
+    margin-top:3px;
+    padding-bottom:3px;
+    border-bottom: solid 1px #666;
+}
+
+#user_article_maintext{
+    padding: 10px;
+}
+
+h2{
+  padding-left: 10px;
+  border-left: solid 20px #000;
+  border-bottom: solid 2px #000;
+  width: 80%;
+}
+
+h3{
+  background: linear-gradient(#666, #555);
+  color: #FFF;
+  padding: 4px;
+  padding-left: 10px;
+  border-left: solid 10px #222;
+  border-right: solid 10px #222;
+  width: 80%;
+}
+
+h4{
+  background: linear-gradient(#444, #333);
+  color: #FFF;
+  padding: 3px;
+  width: 80%;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th{
+    border: ridge 4px #DDF;
+    background-color: #DDF;
+}
+
+td{
+    border: ridge 4px #DDF;
+    background-color: #DDD;
+}
+
+/* Favorite Butto */
+#bookmark_base{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    background: linear-gradient(#888, #777);
+    overflow: hidden;
+}
+
+input,textarea{
+    width: 95%;
+}
+

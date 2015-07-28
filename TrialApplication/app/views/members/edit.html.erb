@@ -1,0 +1,6 @@
+<%= render "shared/error", obj: @member %>
+<%= form_for @member do |f| %>
+  メールアドレス(重複不可):<%= f.text_field :email %>
+  名前：<%= f.text_field :name %>
+  <p><%= f.submit %></p>
+<% end %>

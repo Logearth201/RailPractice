@@ -1,0 +1,16 @@
+<h2>記事単体閲覧</h2>
+<div id="user_article">
+  <% username = Member.find_by_id(@article.userid) %>
+  <!-- 画像領域 -->
+     <%= article_image_tag @article, width: "100%" %>
+  <!-- 画像領域 -->
+  <div id="user_article_infofield">
+    <%= @article.title %><br>投稿者：<%= link_to username.name, member_path(username) %>&nbsp;<%= @article.submitday %><br>
+    <% if @current_member && (@current_member.id.to_i == @article.userid.to_i || @current_member.administrator) %>
+        <%= link_to "編集", edit_article_path(@article) %>&nbsp;<%= link_to "削除", article_path(@article), method: :delete %><br>
+    <% end %>
+   </div>
+  <div id="user_article_maintext">
+    <%= @article.text %>
+  </div>
+</div>

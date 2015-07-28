@@ -1,0 +1,11 @@
+<%= render "shared/error", obj: @member %>
+<%= form_for @member do |form| %>
+  Mail:<br>
+  <%= form.text_field :email %><br>
+  名前：<br><%= form.text_field :name %><br>
+  パスワード：<br>
+  <%= form.password_field :password %><br>
+  パスワード（確認）：<br>
+  <%= form.password_field :password_confirmation %><br>
+  <p><%= form.submit %></p>
+<% end %>

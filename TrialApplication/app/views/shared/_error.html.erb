@@ -1,0 +1,10 @@
+<% unless obj.errors.empty? %>
+  <% logger.debug("456456465") %>
+  <div id="errors">
+    ・エラーを検出しました。修正してください。
+    <br>
+    <% obj.errors.full_messages.each do |msg| %>
+    ・<%= msg %><br>
+    <% end %>
+  </div>
+<% end %>

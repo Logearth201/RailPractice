@@ -1,0 +1,15 @@
+<h2>PLAYHUBへようこそ！</h2>
+提出課題用のため、説明は最低限にします。
+
+<% unless @current_member %>
+   PLAYHUBをやってみませんか？登録すると、自由投稿できます。<br>
+   <%= link_to "登録する", new_member_path %>
+<% end %>
+
+<h3>最近の投稿</h3>
+<div id="modifyposition" style="height: 300px"></div>
+<script>
+   addArticle(3,true,true);
+</script>
+
+

@@ -1,0 +1,29 @@
+<div id = "header">
+  <div id="header_logo">
+    <%= link_to(image_tag("logo.png"), index_path) %>
+  </div>
+  <div id="header_buttonzone">
+    <% unless @current_member %>
+      <%= link_to "ログイン", login_path %>
+    <% else %>
+      <%= @current_member.name %><br>
+      <%= link_to "ログアウト", :session, method: :delete %>
+    <% end %>
+    
+  </div>
+</div>
+<!-- ここでメニューバーを開示する -->
+<div id="menubar">
+  <% unless @current_member %>
+     <%= link_to "登録", new_member_path %>
+     <%= link_to "説明", about_path %>
+     <%= link_to "記事閲覧", play_path %>
+     <%= link_to "規約", favorite_path %>
+  <% else %>
+     <%= link_to "MYPAGE", member_path(@current_member) %>
+     <%= link_to "記事投稿", new_article_path %>
+     <%= link_to "規約", favorite_path %>
+     <%= link_to "記事閲覧", play_path %>
+  <% end %>
+  
+</div>

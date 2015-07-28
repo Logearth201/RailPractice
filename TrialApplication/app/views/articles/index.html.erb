@@ -1,0 +1,19 @@
+<h2>記事一覧</h2>
+<script>
+addArticle(5,false,false);
+
+$(function() {
+    $(window).scroll(function(ev) {
+        var current = $(window).scrollTop() + window.innerHeight;
+        if(allloaded)return;
+        if(current >= $(document).height() - 50){
+            addArticle(5,false,false);
+        }
+    });
+});
+
+
+</script>
+
+<div id="modifyposition"></div>
+<br><br>

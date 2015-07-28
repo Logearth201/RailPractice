@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PLAYHUB</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4&appId=1113026132041732";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+var opennum = 0;
+var sendtime = 0;
+var loadingc = false;
+var allloaded = false;
+function addArticle(num,islastload,isexisttimeout){
+	if(loadingc || allloaded)return;
+	if(islastload)allloaded = true;
+	loadingc = true;
+	$.ajax({
+	   url: "det",//getter/review_content
+	   type: "GET",
+	   dataType: "html",
+	   data: {
+	     getid: opennum,
+	     setcontentnum: num,
+	     sendparam: sendtime
+	   },
+	   success: function(obj){
+	       sendtime ++;
+	       if(obj === "end"){
+	          loadingc = false;
+	          allloaded = true;
+	          opennum = 0;
+	       }else{
+	           loadingc = false;
+	           str = document.getElementById("modifyposition").innerHTML;
+	           $("#modifyposition").html(str + $(obj).find('#getspace').html());
+	           opennum += num;
+	       }
+	   },
+	   error: function(obj){
+	       //if(!isexisttimeout)alert("ローディングに失敗しました。ネットに接続されているか確認したうえで、もう一度やり直してください。");
+	       loadingc = false;
+	       if(isexisttimeout)setTimeout(addArticle(num,islastload,isexisttimeout),300);
+	   }
+	});
+}
+</script>
+
+<div id="centering">
+  <%= render "layouts/header" %>
+  <%= render "layouts/footer" %>
+  <% if flash.notice %>
+    <p class = "notice"><%= flash.notice %></p>
+  <% end %>
+  <div id="main">
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>
